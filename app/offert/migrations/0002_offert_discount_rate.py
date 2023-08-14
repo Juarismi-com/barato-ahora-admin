@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='offert',
             name='discount_rate',
-            field=models.DecimalField(decimal_places=2, default=None, max_digits=3),
+            field=models.DecimalField(decimal_places=2, default=None, max_digits=5), # 99.15
         ),
     ]
