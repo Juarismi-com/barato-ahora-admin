@@ -4,13 +4,24 @@ services:
   app:
     build: .
     environment:
-      MONGO_URL: "mongodb://db:27017/test"
-    #depends_on:
-    #  - db
+      - DB_HOST=postgres
+    depends_on:
+      - postgres
     ports:
       - "8000:8000"
     volumes:
-    - ./app:/app
+      - ./app:/app
 
-  db:
-    image: mongo
+  postgres:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=db
+      - POSTGRES_USER=user1
+      - POSTGRES_PASSWORD=password
+  
+
+volumes:
+  postgres_data:
