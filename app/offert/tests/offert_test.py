@@ -31,6 +31,10 @@ class OffertModelTest(TestCase):
       offert = Offert.objects.filter(category=self.category_created)
       self.assertEqual(offert[0].title, 'offert_y')
 
+   def test_get_offert_is_not_exist_by_category(self):
+      offert = Offert.objects.filter(category=self.category_created)
+      self.assertIsNot(offert[0].title, 'offert_z')
+
 
    def tearDown(self):
       self.offert_created.delete()
