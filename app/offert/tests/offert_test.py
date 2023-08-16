@@ -1,7 +1,7 @@
 from django.test import TestCase
 from ..models import OffertCategory, Offert, Business, OffertType
 import datetime
-
+from django.utils.timezone import make_aware
 
 class OffertModelTest(TestCase):
    def setUp(self):
@@ -17,8 +17,8 @@ class OffertModelTest(TestCase):
       self.offert_created = Offert(
          title="offert_y", 
          category=self.category_created,
-         date_start=datetime.datetime.now(),
-         date_end=datetime.datetime.now(),
+         date_start=make_aware(datetime.datetime.now()),
+         date_end=make_aware(datetime.datetime.now()),
          disclaimer="nothing",
          business_receptor=self.business_create,
          business_emissor=self.business_create,
