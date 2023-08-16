@@ -1,0 +1,98 @@
+[
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Alimentos y Comestibles"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Electrónica y Tecnología"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Moda y Ropa"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Salud y Belleza"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Entretenimiento y Ocio"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Viajes y Experiencias"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Hogar y Decoración"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Tecnología y Software"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Deportes y Aire Libre"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Educación y Cursos"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Automóviles y Accesorios"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Mascotas y Animales"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Libros y Lectura"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Finanzas Personales"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Regalos y Ocasiones Especiales"
+      }
+   },
+   {
+      "model":"offert.offertcategory",
+      "fields":{
+         "name":"Transporte y Viajes"
+      }
+   }
+]
