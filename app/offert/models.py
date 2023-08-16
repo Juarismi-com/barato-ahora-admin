@@ -17,9 +17,10 @@ class Business(models.Model):
 
 class OffertCategory(models.Model):
    name = models.CharField(max_length=200)
-   
+
    def __str__(self):
       return self.name
+      
 
 
 class Offert(models.Model):
@@ -34,6 +35,9 @@ class Offert(models.Model):
    active = models.BooleanField(default=True)
    description = models.TextField()
    discount_rate = models.DecimalField(max_digits=5, decimal_places=2)
+
+   class Meta:
+      ordering = ['date_start']
 
    def __str__(self):
       return self.title
