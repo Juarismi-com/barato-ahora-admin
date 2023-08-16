@@ -11,12 +11,13 @@
 # ]
 
 from rest_framework import routers
-from .api import CategoryViewSet
+from .api import UserCompanyViewSet, CategoryViewSet, OffertTypeViewSet, OffertViewSet
 
 router = routers.DefaultRouter()
 
+router.register('api/usercompanies', UserCompanyViewSet, 'usercompanies')
 router.register('api/categories', CategoryViewSet, 'categories')
+router.register('api/offerttypes', OffertTypeViewSet, 'offerttypes')
+router.register('api/offerts', OffertViewSet, 'offerts')
 
 urlpatterns = router.urls
-
-

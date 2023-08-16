@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from offert.api import CategoryViewSet
+from offert.api import UserCompanyViewSet, CategoryViewSet, OffertTypeViewSet, OffertViewSet
 from .serializers import router
 
 urlpatterns = [
@@ -25,14 +25,49 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
+    # Endpoint de usuarios de empresas
+    path('api/usercompanies/', UserCompanyViewSet.as_view({
+        'get': 'list',
+        'post': 'create'
+    }), name='usercompanies-list'),
+
+    path('api/usercompanies/<int:pk>/', UserCompanyViewSet.as_view({
+        'put': 'update',
+        'delete': 'destroy'
+    }), name='usercompanies-detail'),
+
     # Endpoint de categorias
     path('api/categories/', CategoryViewSet.as_view({
         'get': 'list',
         'post': 'create'
     }), name='categories-list'),
-    
+
     path('api/categories/<int:pk>/', CategoryViewSet.as_view({
         'put': 'update',
         'delete': 'destroy'
     }), name='categories-detail'),
+
+
+    # Endpoint de tipos de oferta
+    path('api/offerttypes/', OffertTypeViewSet.as_view({
+        'get': 'list',
+        'post': 'create'
+    }), name='offerttypes-list'),
+
+    path('api/offerttypes/<int:pk>/', OffertTypeViewSet.as_view({
+        'put': 'update',
+        'delete': 'destroy'
+    }), name='offerttypes-detail'),
+
+
+    # Endpoint de ofertas
+    path('api/offerts/', OffertViewSet.as_view({
+        'get': 'list',
+        'post': 'create'
+    }), name='offerts-list'),
+
+    path('api/offerts/<int:pk>/', OffertViewSet.as_view({
+        'put': 'update',
+        'delete': 'destroy'
+    }), name='offerts-detail'),
 ]
