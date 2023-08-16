@@ -39,4 +39,6 @@ class OffertModelTest(TestCase):
    def tearDown(self):
       self.offert_created.delete()
       self.category_created.delete()
+      self.business_create.delete()
+      self.offert_type_created.delete()
       
