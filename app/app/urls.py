@@ -16,11 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from offert.api import CategoryViewSet
 from .serializers import router
 
 urlpatterns = [
-   path("offerts/", include("offert.urls")),
-   path('admin/', admin.site.urls),
-   path('', include(router.urls)),
-   path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path("offerts/", include("offert.urls")),
+    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    # Endpoint de categorias
+    path('api/categories/', CategoryViewSet.as_view({
+        'get': 'list',
+        'post': 'create'
+    }), name='categories-list'),
+    
+    path('api/categories/<int:pk>/', CategoryViewSet.as_view({
+        'put': 'update',
+        'delete': 'destroy'
+    }), name='categories-detail'),
 ]

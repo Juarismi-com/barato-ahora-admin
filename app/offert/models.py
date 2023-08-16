@@ -40,3 +40,10 @@ class OffertDays(models.Model):
    thursday= models.BooleanField(default=False)
    friday= models.BooleanField(default=False)
    saturday= models.BooleanField(default=False)
+
+
+class Category(models.Model):
+    id = models.AutoField(primary_key=True)
+    description = models.CharField(max_length=50) 
+
+   
