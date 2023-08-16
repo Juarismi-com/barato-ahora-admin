@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,6 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-n_+*os9-m%2z77scq8v75vr@t%uheu)y#wfa0k60ul_c2-^bhz'
@@ -76,10 +78,19 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+      'ENGINE': os.environ.get("DB_ENGINE", "django.db.backends.postgresql"),
+      'NAME': os.environ.get("DB_NAME", "db"),
+      'USER': os.environ.get("DB_USER", "user1"),
+      'PASSWORD': os.environ.get("DB_PASSWORD", "password"),
+      'HOST': os.environ.get("DB_HOST", "localhost"),
+      'PORT': os.environ.get("DB_PORT", "5432"),
+   } 
+
+   #'sqlite': {
+   #   'ENGINE': 'django.db.backends.sqlite3',
+   #   'NAME': BASE_DIR / 'db.sqlite3',
+   #}
 }
 
 
