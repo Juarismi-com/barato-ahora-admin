@@ -86,12 +86,17 @@ DATABASES = {
       'HOST': os.environ.get("DB_HOST", "localhost"),
       'PORT': os.environ.get("DB_PORT", "5432"),
    } 
-
-   #'sqlite': {
-   #   'ENGINE': 'django.db.backends.sqlite3',
-   #   'NAME': BASE_DIR / 'db.sqlite3',
-   #}
 }
+
+# prod, staging and test
+if (os.getenv('APP_ENV') == 'test'):
+   print('--- only for test ---')
+   DATABASES = {
+      'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+      }
+   }
 
 
 # Password validation
