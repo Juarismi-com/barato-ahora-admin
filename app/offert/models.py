@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.hashers import make_password
 
 # Create your models here.
 class UserCompany(models.Model):
@@ -7,6 +8,12 @@ class UserCompany(models.Model):
     contrasena = models.CharField(max_length=200)
     telefono = models.CharField(max_length=20)
     categoria = models.CharField(max_length=200)
+
+    def save(self, *args, **kwargs):
+        # Antes de guardar, asegúrate de que la contraseña esté hasheada
+        if not self.contrasena.startswith('bcrypt_sha256$'):
+            self.contrasena = make_password(self.contrasena)
+        super(UserCompany, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.nombre
