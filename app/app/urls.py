@@ -17,9 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .serializers import router
+from rest_framework import routers
+from offert.serializers import router as offert_router
+
+router = routers.DefaultRouter()
+router.registry.extend(offert_router.registry)
 
 urlpatterns = [
-   path("offerts/", include("offert.urls")),
+   #path("offerts/", include("offert.urls")),
    path('admin/', admin.site.urls),
    path('', include(router.urls)),
    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))

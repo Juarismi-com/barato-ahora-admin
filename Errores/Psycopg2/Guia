@@ -1,0 +1,5 @@
+Se soluciona instalando el pyscopg2 y luego
+
+docker compose down
+docker compose build
+docker compose up
