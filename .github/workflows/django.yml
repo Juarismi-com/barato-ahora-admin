@@ -5,9 +5,12 @@ on:
     branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
+<<<<<<< Updated upstream
 
 env:
   APP_ENV: 'test'
+=======
+>>>>>>> Stashed changes
 
 jobs:
   build:
