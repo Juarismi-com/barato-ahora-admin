@@ -2,9 +2,11 @@ from rest_framework import routers, serializers, viewsets, permissions
 from django.contrib.auth.models import User, Group
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff', 'groups']
+   email = serializers.EmailField(required=True, trim_whitespace=True)
+    
+   class Meta:
+      model = User
+      fields = ('url', 'username', 'email', 'groups',)
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
