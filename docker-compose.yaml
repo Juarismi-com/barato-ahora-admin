@@ -5,6 +5,8 @@ services:
     build: .
     environment:
       - DB_HOST=postgres
+      - APP_ENV=prod
+      - APP_FRONT_URL=http://localhost:3000
     depends_on:
       - postgres
     ports:

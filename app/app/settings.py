@@ -56,7 +56,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [    
-    "http://localhost:3000",    
+    os.getenv('APP_FRONT_URL')
 ]
 
 ROOT_URLCONF = 'app.urls'
