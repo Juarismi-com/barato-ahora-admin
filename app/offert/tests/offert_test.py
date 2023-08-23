@@ -2,9 +2,13 @@ from django.test import TestCase
 from ..models import OffertCategory, Offert, Business, OffertType
 import datetime
 from django.utils.timezone import make_aware
+from django.contrib.auth.models import User
 
 class OffertModelTest(TestCase):
    def setUp(self):
+      self.user_created = User(email="test@test.com", username="test")
+      self.user_created.save()
+      
       self.business_create = Business(name="business_a")
       self.business_create.save()
 
@@ -21,7 +25,7 @@ class OffertModelTest(TestCase):
          date_end=make_aware(datetime.datetime.now()),
          disclaimer="nothing",
          business_receptor=self.business_create,
-         business_emissor=self.business_create,
+         user_created=self.user_created,
          offert_type=self.offert_type_created,
          discount_rate=10.99
       )
@@ -41,4 +45,5 @@ class OffertModelTest(TestCase):
       self.category_created.delete()
       self.business_create.delete()
       self.offert_type_created.delete()
+      self.user_created.delete()
       

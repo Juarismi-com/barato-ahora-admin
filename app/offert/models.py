@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class OffertType(models.Model):
@@ -25,7 +27,6 @@ class OffertCategory(models.Model):
 
 class Offert(models.Model):
    offert_type = models.ForeignKey(OffertType, on_delete=models.CASCADE)
-   business_emissor = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='business_emissor')
    business_receptor = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='business_receptor')
    category = models.ForeignKey(OffertCategory, on_delete=models.CASCADE, default=None)
    date_start = models.DateTimeField("date published")
@@ -35,6 +36,7 @@ class Offert(models.Model):
    active = models.BooleanField(default=True)
    description = models.TextField()
    discount_rate = models.DecimalField(max_digits=5, decimal_places=2)
+   user_created = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
    class Meta:
       ordering = ['date_start']
