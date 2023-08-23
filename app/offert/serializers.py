@@ -5,7 +5,7 @@ from .models import Offert, OffertCategory
 class OffertSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Offert
-        fields = ['title', 'date_start']
+        fields = ['title', 'date_start', 'date_end']
 
 class OffertCategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -25,6 +25,5 @@ class OffertCategoryViewSet(viewsets.ModelViewSet):
 
 # Router
 router = routers.DefaultRouter()
-
-router.register(r'api/offerts', OffertViewSet)
-router.register(r'api/offertscategories', OffertCategoryViewSet)
+router.register(r'offerts', OffertViewSet)
+router.register(r'offert-categories', OffertCategoryViewSet)
