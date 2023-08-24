@@ -1,5 +1,4 @@
 from django.urls import path, include
-from app.urls import urlpatterns
 
 urlpatterns = [
    path('', include('djoser.urls.jwt')),
