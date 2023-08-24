@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
 from .serializers import router
 from offert.serializers import router as offert_router
 

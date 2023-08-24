@@ -1,5 +1,5 @@
 from rest_framework import routers, serializers, viewsets
-from .models import Offert, OffertCategory
+from .models import Offert, OffertCategory, Category
 
 # Serializers
 class OffertSerializer(serializers.HyperlinkedModelSerializer):
@@ -12,6 +12,11 @@ class OffertCategorySerializer(serializers.HyperlinkedModelSerializer):
         model = OffertCategory
         fields = ['name']     
 
+class CategorySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['name']        
+
 
 # ViewSets
 class OffertViewSet(viewsets.ModelViewSet):
@@ -22,8 +27,13 @@ class OffertCategoryViewSet(viewsets.ModelViewSet):
     queryset = OffertCategory.objects.all()
     serializer_class = OffertCategorySerializer    
            
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer           
+
 
 # Router
 router = routers.DefaultRouter()
 router.register(r'offerts', OffertViewSet)
 router.register(r'offert-categories', OffertCategoryViewSet)
+router.register(r'categories', CategoryViewSet)
