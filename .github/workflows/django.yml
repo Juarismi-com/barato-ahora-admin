@@ -8,7 +8,7 @@ on:
 
 env:
   APP_ENV: 'test'
-  APP_FRONT_URL: 'example.com'
+  APP_FRONT_URL: 'http://example.com'
 
 jobs:
   build:
