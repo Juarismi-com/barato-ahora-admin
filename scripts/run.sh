@@ -24,7 +24,7 @@ seed(){
    echo "load seed"
 }
 
-full_start(){
+full-start(){
    build
    migrate
    seed
