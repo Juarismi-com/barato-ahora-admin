@@ -6,7 +6,7 @@
 - Genera una nueva imagen
 - Inicia un contenedor
 
-```
+```bash
 bash ./script/run.sh build
 ```
 
@@ -16,6 +16,6 @@ bash ./script/run.sh build
 - Corre las migraciones
 - Inicia el contenedor
 
-```
+```bash
 bash ./script/run.sh full-start
 ```
