@@ -58,8 +58,8 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",    
 ]
 
-CORS_ALLOWED_ORIGINS = [    
-    os.getenv('APP_FRONT_URL')
+CORS_ALLOWED_ORIGINS = [       
+    os.getenv('APP_FRONT_URL'),
 ]
 
 ROOT_URLCONF = 'app.urls'

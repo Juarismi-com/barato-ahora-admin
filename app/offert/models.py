@@ -33,7 +33,7 @@ class OffertCategory(models.Model):
 class Offert(models.Model):
    offert_type = models.ForeignKey(OffertType, on_delete=models.CASCADE)
    business_receptor = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='business_receptor')
-   category = models.ForeignKey(OffertCategory, on_delete=models.CASCADE, default=None)
+   offert_category = models.ForeignKey(OffertCategory, on_delete=models.CASCADE, default=None)
    date_start = models.DateTimeField("date published")
    date_end = models.DateTimeField()
    title = models.CharField(max_length=200)
