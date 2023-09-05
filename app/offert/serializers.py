@@ -1,5 +1,4 @@
-from rest_framework import routers, serializers, viewsets, filters
-from django.db.models import Q
+from rest_framework import serializers, viewsets
 from .models import Offert, OffertCategory, Category
 
 # Serializers
@@ -11,8 +10,7 @@ class OffertSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Offert
-        fields = ['title', 'date_start', 'date_end', 'description', 'disclaimer', 'active',
-                  'discount_rate', 'business_receptor', 'offert_type', 'offert_category', 'user_created']
+        fields = '__all__'
 
 
 class OffertCategorySerializer(serializers.HyperlinkedModelSerializer):
@@ -49,9 +47,3 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-
-# Router
-router = routers.DefaultRouter()
-router.register(r'offerts', OffertViewSet, basename='offert')
-router.register(r'offert-categories', OffertCategoryViewSet)
-router.register(r'categories', CategoryViewSet)

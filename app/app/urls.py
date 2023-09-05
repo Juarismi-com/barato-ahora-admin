@@ -17,13 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .serializers import UserViewSet
-from offert.serializers import router as offert_router
+from offert.serializers import OffertViewSet, OffertCategoryViewSet, CategoryViewSet  
 from rest_framework import routers
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-router.registry.extend(offert_router.registry)
+router.register(r'offerts', OffertViewSet,basename='offert')
+router.register(r'offert-categories', OffertCategoryViewSet)
+router.register(r'categories', CategoryViewSet)
 
 urlpatterns = [
    path('admin/', admin.site.urls),
