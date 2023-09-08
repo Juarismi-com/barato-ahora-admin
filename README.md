@@ -17,5 +17,5 @@ bash ./script/run.sh build
 - Inicia el contenedor
 
 ```bash
-bash ./script/run.sh full-start
+bash ./scripts/run.sh full-start
 ```
