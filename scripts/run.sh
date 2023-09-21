@@ -9,8 +9,13 @@ clear(){
 build(){
    echo "build and remove unnecesary images like none"
    docker-compose down
-   docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
    docker-compose up -d --build
+   docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+}
+
+start(){
+   echo "Start container"
+   docker-compose up -d
 }
 
 
